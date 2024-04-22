@@ -1,0 +1,90 @@
+<?php 
+//echo 'hola mundilloddd';
+$numero = 4;
+$texto = "Texto completo";
+$age = 18;
+define('LOGO_URL','https://cdn.freebiesupply.com/logos/large/2x/angular-icon-1-logo-svg-vector.svg');
+//variable gloval constante
+
+echo var_export(gettype($numero));
+const NOMBRE = "Miguel ";// variable constantes locales
+?>
+
+<h1>
+    <?= "Hola. ". $numero?>
+    .<br>
+    <!-- . ", <script>alert('hola') </script> ohhhhh." -->
+</h1>
+
+<?php 
+//uso normal del if else
+if (4 > 5) {
+    echo "no es mayor";
+}
+else if(5>7){
+    echo "si es igual a 5";
+}
+    else{
+        echo "no es igual a";
+    }
+    echo 'si es';
+
+?>
+<!-- otra forma de usar if elseif -->
+<?php if(4 == 4):?>
+    <h2> Eres viejo, lo sentimos</h2>
+<?php elseif(4>2):?>
+    <h2> No eres viejo, pero es dev. Estas jodido</h2>
+<?php else: ?>
+    <h2> Eres joven, en buena hora</h2>
+<?php endif; ?>
+
+<?php
+//operador ternario
+$outputAge = 5 > 5? "eres loco":"Eres loca";
+?>
+
+<?php
+//uso de match
+$salida = match(true){
+    $age < 2 => "Eres un bb",
+    $age < 10 => "Eres un ninio",
+    $age < 18 => "Eres adolecente",
+    $age == 18 => "Eres mayor edad",
+    $age < 40 => "Eres adulto joven",
+    $age < 60 => "Eres adulto viejo",
+    default   => "Hueles mas madera a fruta",
+};
+echo "Este es: ". $salida;
+?>
+
+<h3><?= $outputAge;?></h3>
+
+<img src="<?= LOGO_URL?>" alt="PHP Logo" width="200">
+
+<?php 
+//arreglos y iteracion
+$bestLanguages = ["PHP", "JAVA", "PYTHON", 2, 1];
+$bestLanguages[] = "C#";
+echo $bestLanguages[1];
+
+foreach( $bestLanguages as $keys => $lenguge){
+    echo $lenguge."<br>";
+}
+?>
+<!-- iterar un arreglo en html -->
+<ol>
+    <?php foreach($bestLanguages as $keys => $lenguge): ?>
+        <li><?= ($keys+1). "--> ". $lenguge?></li>
+    <?php endforeach; ?>
+</ol>
+
+<style>
+    :root{
+        color-scheme: lignt dark;
+    }
+    body{
+        display: grid;
+        place-content: center;
+    }
+</style>
